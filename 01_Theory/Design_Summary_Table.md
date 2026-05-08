@@ -13,17 +13,20 @@
 | Output Current | Io | 3 A |
 
 | Output Power | Po | 21 W |
+
 | Load Resistance | Rload | 2.33 Ω |
+
 | Duty Cycle | D | 0.292 |
+
 | Switching Frequency | fs | 20 kHz |
 
-| Inductor | L | TBD |
+| Inductor Ripple Current | ΔIL | 0.9 A |
 
-| Capacitor | C | TBD |
+| Inductor | L | 300 µH |
 
-| Output Voltage Ripple | ΔVo | TBD |
+| Capacitor | C | 100 µF |
 
-| Inductor Ripple Current | ΔIL | TBD |
+| Output Voltage Ripple | ΔVo | 0.1 V |
 
-| Critical Inductance | Lcrit | TBD |
+| Critical Inductance | Lcrit | 41 µH |
 
