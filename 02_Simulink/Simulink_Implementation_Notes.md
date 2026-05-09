@@ -76,3 +76,35 @@ Implemented components:
 
 The simulation environment was configured using discrete mode with sampling time of 10e-6 sec according to assignment instructions.
 
+
+
+\## PWM Configuration
+
+
+
+The MOSFET switching signal was generated using a pulse generator block.
+
+
+
+PWM parameters:
+
+
+
+\- Amplitude = 1
+
+\- Switching frequency = 20 kHz
+
+\- Period = 50 µs
+
+\- Duty cycle = 29.2%
+
+
+
+The duty cycle was selected according to the theoretical buck converter relationship:
+
+
+
+D = Vo / Vin
+
+
+
