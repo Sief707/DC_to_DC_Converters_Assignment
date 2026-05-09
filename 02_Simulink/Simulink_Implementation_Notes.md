@@ -108,3 +108,39 @@ D = Vo / Vin
 
 
 
+\## Measurement Architecture
+
+
+
+Measurement blocks were added to monitor converter operation during simulation.
+
+
+
+\### Voltage Measurements
+
+\- Input voltage Vin
+
+\- Output voltage Vo
+
+\- MOSFET switching voltage VSW
+
+
+
+\### Current Measurements
+
+\- MOSFET current ISW
+
+\- Inductor current IL
+
+\- Diode current ID
+
+
+
+Scopes were organized into:
+
+\- Current waveforms
+
+\- Voltage waveforms
+
+\- PWM control signal
+
