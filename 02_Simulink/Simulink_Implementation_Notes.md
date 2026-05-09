@@ -40,3 +40,39 @@
 
 \- Maximum simulation duration = 10 switching cycles
 
+
+
+\## Initial Power Stage Construction
+
+
+
+The open-loop buck converter topology was implemented using Simscape Electrical Specialized Power Systems.
+
+
+
+Implemented components:
+
+\- DC voltage source
+
+\- MOSFET switch
+
+\- Freewheeling diode
+
+\- Inductor
+
+\- Capacitor
+
+\- Resistive load
+
+\- Current measurement blocks
+
+\- Voltage measurement blocks
+
+\- PWM pulse generator
+
+\- powergui block
+
+
+
+The simulation environment was configured using discrete mode with sampling time of 10e-6 sec according to assignment instructions.
+
