@@ -1,170 +1,142 @@
-\# Buck Converter Design Calculations
+# Buck Converter Design Calculations
 
+## Given Specifications
 
+- Input Voltage = 24 V
+- Output Voltage = 7 V
+- Output Current = 3 A
 
-\## Given Specifications
+---
 
+## Design Assumptions
 
+- Ideal buck converter operation
+- Continuous conduction mode (CCM)
+- Discrete simulation with sample time = 10e-6 sec
+- Switching frequency selected as 10 kHz
+- Output voltage ripple maintained below 0.5 V
 
-\- Input Voltage = 24 V
+---
 
-\- Output Voltage = 7 V
-
-\- Output Current = 3 A
-
-
-
-\## Design Assumptions
-
-
-
-\- Ideal buck converter operation
-
-\- Continuous conduction mode (CCM)
-
-\- Switching frequency selected as 20 kHz
-
-\- Output voltage ripple kept below 0.5 V as required
-
-\- Inductor ripple current selected later as percentage of load current
-
-
-
-\## Output Power
-
-
+## Output Power
 
 Po = Vo × Io
 
-
-
 Po = 21 W
 
+---
 
-
-\## Load Resistance
-
-
+## Load Resistance
 
 R = Vo / Io
 
-
+R = 7 / 3
 
 R = 2.33 Ω
 
+---
 
+## Duty Cycle
 
-\## Duty Cycle
+:contentReference[oaicite:1]{index=1}
 
-
-
-D = Vo / Vin
-
-
+D = 7 / 24
 
 D = 0.292
 
-
-
 Duty cycle is approximately 29.2%.
 
+---
 
+## Switching Frequency Selection
 
-\## Inductor Ripple Current Selection
+The assignment constrains the simulation to a discrete sample time of:
 
+Ts = 10e-6 sec
 
+For accurate switching simulation:
 
-The inductor ripple current was selected as 30% of the rated load current.
+:contentReference[oaicite:2]{index=2}
 
+Thus:
 
+Tsw ≥ 100 µs
 
-ΔIL = 0.3 × Io
+Therefore:
 
+:contentReference[oaicite:3]{index=3}
 
+fs ≤ 10 kHz
 
-ΔIL = 0.9 A
+A switching frequency of 10 kHz was selected.
 
+---
 
+## Minimum Inductance for CCM
 
-This value provides visible ripple while maintaining stable CCM operation.
+:contentReference[oaicite:4]{index=4}
 
+Substituting:
 
+- D = 0.292
+- R = 2.33 Ω
+- fs = 10 kHz
 
-\## Inductor Design
+Lmin ≈ 82.6 µH
 
+---
 
+## Selected Inductance
 
-The inductor value for the buck converter is calculated using:
+To ensure continuous conduction mode:
 
+Ldesign = 1.25 × Lmin
 
+Ldesign ≈ 103.25 µH
 
-L = ((Vin - Vo) × D) / (ΔIL × fs)
+---
 
+## Output Voltage Ripple
 
+Target ripple voltage:
 
-Calculated inductance:
+ΔVo = 0.07 V
 
+---
 
+## Capacitor Design
 
-L ≈ 276 µH
+:contentReference[oaicite:5]{index=5}
 
+Substituting:
 
+- Io = 3 A
+- fs = 10 kHz
+- ΔVo = 0.07 V
 
-A practical standard value of 300 µH was selected.
+C ≈ 857.14 µF
 
+---
 
+## Final Selected Parameters
 
-\## Output Voltage Ripple Selection
+| Parameter | Value |
+|---|---|
+| Vin | 24 V |
+| Vo | 7 V |
+| Io | 3 A |
+| fs | 10 kHz |
+| Duty Cycle | 29.2 % |
+| R | 2.33 Ω |
+| L | 103.25 µH |
+| C | 857.14 µF |
 
+---
 
+## CCM Verification
 
-The assignment allows output voltage ripple less than 0.5 V.
+Since:
 
+Ldesign > Lmin
 
-
-A smaller ripple target of 0.1 V was selected to improve output quality and waveform smoothness.
-
-
-
-\## Capacitor Design
-
-
-
-The output capacitor is calculated using:
-
-
-
-C = ΔIL / (8 × fs × ΔVo)
-
-
-
-Calculated capacitor value:
-
-
-
-C ≈ 56 µF
-
-
-
-A practical value of 100 µF was selected.
-
-
-
-\## Critical Inductance
-
-
-
-The critical inductance separating CCM and DCM is calculated as:
-
-
-
-Lcrit = ((1 - D) × R) / (2 × fs)
-
-
-
-Lcrit ≈ 41 µH
-
-
-
-Since the designed inductance is significantly larger than the critical inductance, the converter operates in continuous conduction mode.
-
+the converter operates in Continuous Conduction Mode (CCM).
